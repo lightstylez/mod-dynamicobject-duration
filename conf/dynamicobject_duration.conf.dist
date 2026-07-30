@@ -1,0 +1,18 @@
+#
+# mod-dynamicobject-duration
+#
+
+DynamicObjectDuration.Enable = 1
+
+#
+# SpellID = duration in milliseconds
+#
+
+DynamicObjectDuration.26573 = 12000
+DynamicObjectDuration.20116 = 12000
+DynamicObjectDuration.20922 = 12000
+DynamicObjectDuration.20923 = 12000
+DynamicObjectDuration.20924 = 12000
+DynamicObjectDuration.27173 = 12000
+DynamicObjectDuration.48818 = 12000
+DynamicObjectDuration.48819 = 12000
