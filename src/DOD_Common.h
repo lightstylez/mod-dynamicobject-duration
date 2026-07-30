@@ -8,7 +8,7 @@
 #include "SpellMgr.h"
 #include "Log.h"
 
-namespace DynamicObjectDuration
+namespace DOD
 {
     constexpr char const* MODULE_NAME = "mod-dynamicobject-duration";
 }
