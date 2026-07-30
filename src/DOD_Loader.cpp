@@ -1,24 +1,9 @@
-#include "Common.h"
+#include "DOD_Common.h"
 
-void AddSC_mod_dynamicobject_duration();
+// Forward declaration
+void AddSC_DOD_DynamicObject();
 
-class DynamicObjectDurationLoader : public AddonScript
+void AddSC_mod_dynamicobject_duration()
 {
-public:
-    DynamicObjectDurationLoader()
-        : AddonScript("mod_dynamicobject_duration")
-    {
-    }
-
-    void OnAfterConfigLoad(bool /*reload*/) override
-    {
-        LOG_INFO("module", "[{}] Loaded.", DynamicObjectDuration::MODULE_NAME);
-    }
-};
-
-void Addmod_dynamicobject_durationScripts()
-{
-    new DynamicObjectDurationLoader();
-
-    AddSC_mod_dynamicobject_duration();
+    AddSC_DOD_DynamicObject();
 }
