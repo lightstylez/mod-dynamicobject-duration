@@ -7,18 +7,17 @@ public:
     {
     }
 
-    void OnUpdate(DynamicObject* dynamicObject, uint32 diff) override
+    void OnDynamicObjectUpdate(DynamicObject* dynObj, uint32 diff) override
     {
         (void)diff;
 
-        if (!dynamicObject)
+        if (!dynObj)
             return;
 
         LOG_INFO("server.loading",
-            "[{}] DynamicObject spell {} duration {}",
-            DOD::MODULE_NAME,
-            dynamicObject->GetSpellId(),
-            dynamicObject->GetDuration());
+            "[DOD] SpellId={} Duration={}",
+            dynObj->GetSpellId(),
+            dynObj->GetDuration());
     }
 };
 
