@@ -3,21 +3,44 @@
 class DODDynamicObjectScript : public DynamicObjectScript
 {
 public:
-    DODDynamicObjectScript() : DynamicObjectScript("DODDynamicObjectScript")
+    DODDynamicObjectScript()
+        : DynamicObjectScript("DODDynamicObjectScript")
     {
+        LOG_INFO("server.loading", "[DOD] Loaded DynamicObject script");
     }
 
-    void OnDynamicObjectUpdate(DynamicObject* dynObj, uint32 diff) override
+    void OnUpdate(DynamicObject* dynObj, uint32 /*diff*/) override
     {
-        (void)diff;
-
         if (!dynObj)
             return;
 
-        LOG_INFO("server.loading",
-            "[DOD] SpellId={} Duration={}",
-            dynObj->GetSpellId(),
-            dynObj->GetDuration());
+        switch (dynObj->GetSpellId())
+        {
+            case 26573:
+            case 20116:
+            case 20922:
+            case 20923:
+            case 20924:
+            case 27173:
+            case 48818:
+            case 48819:
+                break;
+
+            default:
+                return;
+        }
+
+        int32 duration = dynObj->GetDuration();
+
+        // Only modify immediately after creation.
+        if (duration <= 8000 && duration >= 7900)
+        {
+            LOG_INFO("server.loading",
+                "[DOD] Extending Consecration {} -> 12000",
+                duration);
+
+            dynObj->SetDuration(12000);
+        }
     }
 };
 
